@@ -192,7 +192,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "dixa_test"
+name = "dixa-client"
 version = "0.1.0"
 dependencies = [
  "chrono",
