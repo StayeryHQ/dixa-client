@@ -1961,6 +1961,33 @@ pub enum Conversation {
     TwitterConversation(TwitterConversation),
     WhatsAppConversation(WhatsAppConversation),
 }
+impl Conversation {
+    pub fn id(&self) -> i64 {
+        match self {
+            Conversation::AnonymizedConversation(anonymized_conversation) => {
+                anonymized_conversation.id
+            }
+            Conversation::ChatConversation(chat_conversation) => chat_conversation.id,
+            Conversation::ContactFormConversation(contact_form_conversation) => {
+                contact_form_conversation.id
+            }
+            Conversation::EmailConversation(email_conversation) => email_conversation.id,
+            Conversation::FacebookMessengerConversation(facebook_messenger_conversation) => {
+                facebook_messenger_conversation.id
+            }
+            Conversation::GenericConversation(generic_conversation) => generic_conversation.id,
+            Conversation::MessengerConversation(messenger_conversation) => {
+                messenger_conversation.id
+            }
+            Conversation::PstnPhoneConversation(pstn_phone_conversation) => {
+                pstn_phone_conversation.id
+            }
+            Conversation::SmsConversation(sms_conversation) => sms_conversation.id,
+            Conversation::TwitterConversation(twitter_conversation) => twitter_conversation.id,
+            Conversation::WhatsAppConversation(whats_app_conversation) => whats_app_conversation.id,
+        }
+    }
+}
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct WhatsAppConversation {
     #[serde(skip_serializing_if = "Option::is_none")]
